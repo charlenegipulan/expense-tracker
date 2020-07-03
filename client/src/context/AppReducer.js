@@ -3,14 +3,14 @@ export default (state, action) => {
     switch(action.type) {
         case 'GET_TRANSACTIONS':
             return {
-                ...state,
+                ...state, //change state
                 loading: false,
                 transactions: action.payload
             }
         case 'DELETE_TRANSACTION':
             return {
                 ...state,
-                transactions: state.transactions.filter(transaction => transaction.id !== action.payload)
+                transactions: state.transactions.filter(transaction => transaction._id !== action.payload)
             }
         case 'ADD_TRANSACTION':
             return {
@@ -23,6 +23,6 @@ export default (state, action) => {
                 error: action.payload //can use this for alerts for error 
             }
         default:
-            return state;
+            return state; //pass to component
     }
 }
